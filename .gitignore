@@ -34,5 +34,7 @@ build/
 ### VS Code ###
 .vscode/
 
+/files_to_read
+
 ### Mac OS ###
 .DS_Store
