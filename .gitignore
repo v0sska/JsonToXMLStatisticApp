@@ -34,7 +34,8 @@ build/
 ### VS Code ###
 .vscode/
 
-/files_to_read
-
 ### Mac OS ###
 .DS_Store
+/src/main/resources/files_to_read/
+/src/main/resources/written_files/
+/src/main/java/GenreCounter.java

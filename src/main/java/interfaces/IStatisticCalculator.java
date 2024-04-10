@@ -1,9 +1,11 @@
 package interfaces;
 
+import java.util.Map;
+
 public interface IStatisticCalculator {
-    int countByLabel();
+    Map<String, Integer> countByLabel();
 
-    int countByGenre();
+    Map<String, Integer> countByGenre();
 
-    int countByYearOfFoundation();
+    Map<String, Integer> countByYearOfFoundation();
 }
