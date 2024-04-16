@@ -37,12 +37,11 @@ public class JsonParser implements IJsonParser {
             List<String> parameter = new ArrayList<>();
 
             try (com.fasterxml.jackson.core.JsonParser jsonParser = mapper.getFactory().createParser(new File("src/main/resources/files_to_read/" + fileName + ".json"))) {
-                // Переміщення до початку масиву
+                
                 while (jsonParser.nextToken() != JsonToken.START_ARRAY) {
-                    // Порожній цикл для переміщення парсера до початку масиву
+            
                 }
 
-                // Зчитування об'єктів по одному
                 while (jsonParser.nextToken() != JsonToken.END_ARRAY) {
                     JsonEntity entity = jsonParser.readValueAs(JsonEntity.class);
                     if(field.equals("label"))
