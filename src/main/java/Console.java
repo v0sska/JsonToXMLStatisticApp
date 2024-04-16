@@ -7,20 +7,16 @@ import java.util.Scanner;
 public class Console {
 
     static Scanner scanner = new Scanner(System.in);
-
     private static IXMLService xmlService = new XMLService();
 
     public static void main(String[] args) throws JAXBException {
 
         boolean isOpen = true;
 
-
-        System.out.println("Select one option:");
-
-        System.out.println("1.Parse Json file and create XML statistic and read in console");
-        System.out.println("2.Close program");
-
         while (isOpen) {
+            System.out.println("Select one option:");
+            System.out.println("1.Parse Json file and create XML statistic and read in console");
+            System.out.println("2.Close program");
 
             int variant = scanner.nextInt();
 
@@ -40,27 +36,35 @@ public class Console {
 
     private static void readJsonAndCreateXmlStatisticChoice() throws JAXBException {
 
-        System.out.println("For which attribute you want to get statistic?");
+        boolean backToMenu = true;
 
-        System.out.println("1.Statistic by label");
-        System.out.println("2.Statistic by genre");
-        System.out.println("3.Statistic by year of foundation");
+        while (backToMenu) {
+            System.out.println("For which attribute you want to get statistic?");
+            System.out.println("1.Statistic by label");
+            System.out.println("2.Statistic by genre");
+            System.out.println("3.Statistic by year of foundation");
+            System.out.println("4.Back to main menu");
 
-        int variant = scanner.nextInt();
+            int variant = scanner.nextInt();
 
-        switch (variant) {
-            case 1:
-                xmlService.createXmlStatisticByLabel();
-                break;
-            case 2:
-                xmlService.createXmlStatisticByGenre();
-                break;
-            case 3:
-                xmlService.createXmlStatisticByFoundationYear();
-                break;
-            default:
-                System.out.println("Invalid input");
-                break;
+            switch (variant) {
+                case 1:
+                    xmlService.createXmlStatisticByLabel();
+                    break;
+                case 2:
+                    xmlService.createXmlStatisticByGenre();
+                    break;
+                case 3:
+                    xmlService.createXmlStatisticByFoundationYear();
+                    break;
+                case 4:
+                    backToMenu = false;
+                    break;
+                default:
+                    System.out.println("Invalid input");
+                    break;
+            }
         }
     }
 }
+

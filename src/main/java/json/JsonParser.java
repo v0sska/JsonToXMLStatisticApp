@@ -16,12 +16,6 @@ public class JsonParser implements IJsonParser {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
-
-    @Override
-    public List<String> readJsonAndAddToList(){
-        return null;
-    }
-
     @Override
     public List<String> readJsonFileByGenre(String fileName) {
        return readJsonFileByField("genre", fileName);
