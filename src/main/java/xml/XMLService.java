@@ -10,6 +10,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +23,7 @@ public class XMLService implements IXMLService {
     private IStatisticCalculator calculator = new StatisticCalculator();
 
     @Override
-    public void createXmlStatisticByLabel() throws JAXBException {
+    public void createXmlStatisticByLabel() throws JAXBException, IOException {
 
         Map<String, Integer> labelCount = calculator.countByLabel();
 
@@ -31,7 +35,7 @@ public class XMLService implements IXMLService {
     }
 
     @Override
-    public void createXmlStatisticByGenre() throws JAXBException {
+    public void createXmlStatisticByGenre() throws JAXBException, IOException {
 
         Map<String, Integer> genreCount = calculator.countByGenre();
 
@@ -42,7 +46,7 @@ public class XMLService implements IXMLService {
     }
 
     @Override
-    public void createXmlStatisticByFoundationYear() throws JAXBException {
+    public void createXmlStatisticByFoundationYear() throws JAXBException, IOException {
 
         Map<String, Integer> foundationYearCount = calculator.countByYearOfFoundation();
 
@@ -52,16 +56,20 @@ public class XMLService implements IXMLService {
 
     }
 
-    private void createXmlFile(Map<String, Integer> statisticCountMap, List<Item> items, String nameFile) throws JAXBException {
+    private void createXmlFile(Map<String, Integer> statisticCountMap, List<Item> items, String nameFile) throws JAXBException, IOException {
 
         for(Map.Entry<String, Integer> entry : statisticCountMap.entrySet()){
             Item item = new Item(entry.getKey(), entry.getValue());
             items.add(item);
         }
 
+        Path statisticFolder = Paths.get("src/main/resources/written_files");
+
+        Files.createDirectories(statisticFolder);
+
         Statistic statistics = new Statistic(items);
 
-        File statisticFile = new File("src/main/resources/written_files/statistic_by_" + nameFile + ".xml");
+        File statisticFile = new File(statisticFolder + "/statistic_by_" + nameFile + ".xml");
 
         JAXBContext context = JAXBContext.newInstance(Statistic.class);
 

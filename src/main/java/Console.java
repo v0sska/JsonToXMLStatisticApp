@@ -2,6 +2,7 @@ import interfaces.IXMLService;
 import xml.XMLService;
 
 import javax.xml.bind.JAXBException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Console {
@@ -9,7 +10,7 @@ public class Console {
     static Scanner scanner = new Scanner(System.in);
     private static IXMLService xmlService = new XMLService();
 
-    public static void main(String[] args) throws JAXBException {
+    public static void main(String[] args) throws JAXBException, IOException {
 
         boolean isOpen = true;
 
@@ -34,7 +35,7 @@ public class Console {
         }
     }
 
-    private static void readJsonAndCreateXmlStatisticChoice() throws JAXBException {
+    private static void readJsonAndCreateXmlStatisticChoice() throws JAXBException, IOException {
 
         boolean backToMenu = true;
 
