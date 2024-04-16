@@ -1,14 +1,15 @@
 package json;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import entity.JsonEntity;
 import interfaces.IJsonParser;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 
 public class JsonParser implements IJsonParser {
@@ -23,52 +24,47 @@ public class JsonParser implements IJsonParser {
 
     @Override
     public List<String> readJsonFileByGenre() {
-        List<JsonEntity> entityList = null;
-
-        try {
-            entityList = mapper.readValue(new File("src/main/resources/files_to_read/statistic1.json"), new TypeReference<List<JsonEntity>>(){});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        List<String> genres = entityList.stream()
-                .map(JsonEntity::getGenre)
-                .collect(Collectors.toList());
-
-        return genres;
+       return readJsonFileByField("genre");
     }
 
     @Override
     public List<String> readJsonFileByLabel() {
-        List<JsonEntity> entityList = null;
 
-        try {
-            entityList = mapper.readValue(new File("src/main/resources/files_to_read/statistic1.json"), new TypeReference<List<JsonEntity>>(){});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        List<String> labels = entityList.stream()
-                .map(JsonEntity::getLabel)
-                .collect(Collectors.toList());
-
-        return labels;
+        return readJsonFileByField("label");
     }
 
     @Override
     public List<String> readJsonFileByYearOfFoundation() {
-        List<JsonEntity> entityList = null;
 
-        try {
-            entityList = mapper.readValue(new File("src/main/resources/files_to_read/statistic1.json"), new TypeReference<List<JsonEntity>>(){});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        List<String> foundationYears = entityList.stream()
-                .map(JsonEntity::getFoundedYear)
-                .collect(Collectors.toList());
-
-        return foundationYears;
+        return readJsonFileByField("year");
     }
+
+
+        private List<String> readJsonFileByField(String field) {
+
+            List<String> parameter = new ArrayList<>();
+
+            try (com.fasterxml.jackson.core.JsonParser jsonParser = mapper.getFactory().createParser(new File("src/main/resources/files_to_read/statistic1.json"))) {
+                // Переміщення до початку масиву
+                while (jsonParser.nextToken() != JsonToken.START_ARRAY) {
+                    // Порожній цикл для переміщення парсера до початку масиву
+                }
+
+                // Зчитування об'єктів по одному
+                while (jsonParser.nextToken() != JsonToken.END_ARRAY) {
+                    JsonEntity entity = jsonParser.readValueAs(JsonEntity.class);
+                    if(field.equals("label"))
+                        parameter.add(entity.getLabel());
+                    else if(field.equals("genre"))
+                        parameter.add(entity.getGenre());
+                    else if(field.equals("year"))
+                        parameter.add(entity.getFoundedYear());
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+           return parameter;
+
+        }
 }

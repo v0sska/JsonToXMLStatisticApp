@@ -3,11 +3,13 @@ package statistic;
 import interfaces.IJsonParser;
 import interfaces.IStatisticCalculator;
 import json.JsonParser;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+@Getter
+@Setter
 public class StatisticCalculator implements IStatisticCalculator {
 
     private IJsonParser parser = new JsonParser();
@@ -22,7 +24,7 @@ public class StatisticCalculator implements IStatisticCalculator {
             labelCount.put(label, labelCount.getOrDefault(label, 0) + 1);
         }
 
-        return labelCount;
+        return sortFromBiggerToSmaller(labelCount);
     }
 
     @Override
@@ -35,7 +37,7 @@ public class StatisticCalculator implements IStatisticCalculator {
             genreCount.put(genre, genreCount.getOrDefault(genre, 0) + 1);
         }
 
-        return genreCount;
+        return sortFromBiggerToSmaller(genreCount);
     }
 
     @Override
@@ -48,6 +50,24 @@ public class StatisticCalculator implements IStatisticCalculator {
             yearCount.put(year, yearCount.getOrDefault(year, 0) + 1);
         }
 
-        return yearCount;
+        return sortFromBiggerToSmaller(yearCount);
+    }
+
+    private Map<String, Integer> sortFromBiggerToSmaller(Map<String, Integer> noSortedMap){
+
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(noSortedMap.entrySet());
+
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> obj1, Map.Entry<String, Integer> obj2) {
+                return obj2.getValue().compareTo(obj1.getValue());
+            }
+        });
+
+        Map<String, Integer> sortedMap = new LinkedHashMap<>();
+        for (Map.Entry<String, Integer> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedMap;
     }
 }
