@@ -1,0 +1,182 @@
+[
+  {
+    "label": "Universal Music Group",
+    "group": "Queen",
+    "genre": "rock",
+    "founded_year": 1970
+  },
+  {
+    "label": "EMI",
+    "group": "Pink Floyd",
+    "genre": "progressive rock",
+    "founded_year": 1965
+  },
+  {
+    "label": "Capitol Records",
+    "group": "The Beach Boys",
+    "genre": "surf rock",
+    "founded_year": 1961
+  },
+  {
+    "label": "Interscope Records",
+    "group": "U2",
+    "genre": "rock",
+    "founded_year": 1976
+  },
+  {
+    "label": "Columbia Records",
+    "group": "AC/DC",
+    "genre": "hard rock",
+    "founded_year": 1973
+  },
+  {
+    "label": "RCA Records",
+    "group": "Elvis Presley",
+    "genre": "rock and roll",
+    "founded_year": 1929
+  },
+  {
+    "label": "Island Records",
+    "group": "Bob Marley & The Wailers",
+    "genre": "reggae",
+    "founded_year": 1959
+  },
+  {
+    "label": "Virgin Records",
+    "group": "The Rolling Stones",
+    "genre": "rock",
+    "founded_year": 1972
+  },
+  {
+    "label": "Sub Pop",
+    "group": "Nirvana",
+    "genre": "grunge",
+    "founded_year": 1986
+  },
+  {
+    "label": "Motown",
+    "group": "The Supremes",
+    "genre": "R&B",
+    "founded_year": 1959
+  },
+    {
+      "label": "Warner Bros. Records",
+      "group": "Red Hot Chili Peppers",
+      "genre": "alternative rock",
+      "founded_year": 1958
+    },
+    {
+      "label": "Def Jam Recordings",
+      "group": "Beastie Boys",
+      "genre": "hip hop",
+      "founded_year": 1984
+    },
+    {
+      "label": "Atlantic Records",
+      "group": "Aretha Franklin",
+      "genre": "soul",
+      "founded_year": 1947
+    },
+    {
+      "label": "Sony Music Entertainment",
+      "group": "Michael Jackson",
+      "genre": "pop",
+      "founded_year": 1969
+    },
+    {
+      "label": "EMI",
+      "group": "The Beatles",
+      "genre": "pop rock",
+      "founded_year": 1960
+    },
+    {
+      "label": "Interscope Records",
+      "group": "Eminem",
+      "genre": "hip hop",
+      "founded_year": 1990
+    },
+    {
+      "label": "Republic Records",
+      "group": "Taylor Swift",
+      "genre": "pop",
+      "founded_year": 1995
+    },
+    {
+      "label": "Sub Pop",
+      "group": "Soundgarden",
+      "genre": "grunge",
+      "founded_year": 1986
+    },
+    {
+      "label": "Motown",
+      "group": "Stevie Wonder",
+      "genre": "soul",
+      "founded_year": 1959
+    },
+    {
+      "label": "Capitol Records",
+      "group": "Coldplay",
+      "genre": "alternative rock",
+      "founded_year": 1996
+    },
+    {
+      "label": "Warner Music Group",
+      "group": "Linkin Park",
+      "genre": "nu metal",
+      "founded_year": 1996
+    },
+    {
+      "label": "Columbia Records",
+      "group": "Bruce Springsteen",
+      "genre": "rock",
+      "founded_year": 1887
+    },
+    {
+      "label": "Island Records",
+      "group": "Amy Winehouse",
+      "genre": "soul",
+      "founded_year": 1959
+    },
+    {
+      "label": "Universal Music Group",
+      "group": "The Rolling Stones",
+      "genre": "rock",
+      "founded_year": 1934
+    },
+    {
+      "label": "Def Jam Recordings",
+      "group": "Rihanna",
+      "genre": "R&B",
+      "founded_year": 1984
+    },
+    {
+      "label": "Capitol Records",
+      "group": "Radiohead",
+      "genre": "alternative rock",
+      "founded_year": 1942
+    },
+    {
+      "label": "Sony Music Entertainment",
+      "group": "Aerosmith",
+      "genre": "hard rock",
+      "founded_year": 1970
+    },
+    {
+      "label": "Atlantic Records",
+      "group": "Ray Charles",
+      "genre": "soul",
+      "founded_year": 1947
+    },
+    {
+      "label": "Interscope Records",
+      "group": "Lady Gaga",
+      "genre": "pop",
+      "founded_year": 1989
+    },
+    {
+      "label": "EMI",
+      "group": "David Bowie",
+      "genre": "rock",
+      "founded_year": 1931
+    }
+]
