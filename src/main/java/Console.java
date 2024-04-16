@@ -17,9 +17,8 @@ public class Console {
 
         System.out.println("Select one option:");
 
-        System.out.println("1.Read Json file and create XML statistic");
-        System.out.println("2.Read XML file statistic in app");
-        System.out.println("3.Close program");
+        System.out.println("1.Parse Json file and create XML statistic and read in console");
+        System.out.println("2.Close program");
 
         while (isOpen) {
 
@@ -30,20 +29,14 @@ public class Console {
                     readJsonAndCreateXmlStatisticChoice();
                     break;
                 case 2:
-
-                    break;
-                case 3:
                     isOpen = false;
                     break;
                 default:
                     System.out.println("Invalid input");
                     break;
             }
-
         }
     }
-
-    //TODO зробити сьогодні сутність для парсингу json і запис її статистики в xml!!!!
 
     private static void readJsonAndCreateXmlStatisticChoice() throws JAXBException {
 

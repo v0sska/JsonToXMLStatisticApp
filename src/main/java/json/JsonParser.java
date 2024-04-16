@@ -23,28 +23,26 @@ public class JsonParser implements IJsonParser {
     }
 
     @Override
-    public List<String> readJsonFileByGenre() {
-       return readJsonFileByField("genre");
+    public List<String> readJsonFileByGenre(String fileName) {
+       return readJsonFileByField("genre", fileName);
     }
 
     @Override
-    public List<String> readJsonFileByLabel() {
-
-        return readJsonFileByField("label");
+    public List<String> readJsonFileByLabel(String fileName) {
+        return readJsonFileByField("label", fileName);
     }
 
     @Override
-    public List<String> readJsonFileByYearOfFoundation() {
-
-        return readJsonFileByField("year");
+    public List<String> readJsonFileByYearOfFoundation(String fileName) {
+        return readJsonFileByField("year", fileName);
     }
 
 
-        private List<String> readJsonFileByField(String field) {
+        private List<String> readJsonFileByField(String field, String fileName) {
 
             List<String> parameter = new ArrayList<>();
 
-            try (com.fasterxml.jackson.core.JsonParser jsonParser = mapper.getFactory().createParser(new File("src/main/resources/files_to_read/statistic1.json"))) {
+            try (com.fasterxml.jackson.core.JsonParser jsonParser = mapper.getFactory().createParser(new File("src/main/resources/files_to_read/" + fileName + ".json"))) {
                 // Переміщення до початку масиву
                 while (jsonParser.nextToken() != JsonToken.START_ARRAY) {
                     // Порожній цикл для переміщення парсера до початку масиву

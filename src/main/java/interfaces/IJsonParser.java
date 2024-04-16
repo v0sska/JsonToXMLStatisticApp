@@ -6,9 +6,9 @@ public interface IJsonParser {
 
     List<String> readJsonAndAddToList();
 
-    List<String> readJsonFileByGenre();
+    List<String> readJsonFileByGenre(String fileName);
 
-    List<String> readJsonFileByLabel();
+    List<String> readJsonFileByLabel(String fileName);
 
-    List<String> readJsonFileByYearOfFoundation();
+    List<String> readJsonFileByYearOfFoundation(String fileName);
 }

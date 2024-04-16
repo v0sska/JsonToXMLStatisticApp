@@ -14,9 +14,10 @@ public class StatisticCalculator implements IStatisticCalculator {
 
     private IJsonParser parser = new JsonParser();
 
+
     @Override
     public Map<String, Integer> countByLabel() {
-        List<String> labels = parser.readJsonFileByLabel();
+        List<String> labels = parser.readJsonFileByLabel("statistic1");
 
         Map<String, Integer> labelCount = new HashMap<>();
 
@@ -29,7 +30,7 @@ public class StatisticCalculator implements IStatisticCalculator {
 
     @Override
     public Map<String, Integer> countByGenre() {
-        List<String> genres = parser.readJsonFileByGenre();
+        List<String> genres = parser.readJsonFileByGenre("statistic1");
 
         Map<String, Integer> genreCount = new HashMap<>();
 
@@ -42,7 +43,7 @@ public class StatisticCalculator implements IStatisticCalculator {
 
     @Override
     public Map<String, Integer> countByYearOfFoundation() {
-        List<String> years = parser.readJsonFileByYearOfFoundation();
+        List<String> years = parser.readJsonFileByYearOfFoundation("statistic1");
 
         Map<String, Integer> yearCount = new HashMap<>();
 
